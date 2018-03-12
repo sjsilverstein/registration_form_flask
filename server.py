@@ -13,11 +13,11 @@ def index():
 @app.route('/validate', methods = ['POST'])
 def validate():
 	print "Got to /validate"
-	# for key in range(0, len(request.form)):
-	# 	if len(request.form[key]) < 1:
-	# 		print "Are any Values Blank This is Bad Fill the Form out FOOL!"
-	# 		flash("Fill out the form completely")
-	# 		return render_template('index.html')
+	for key in request.form:
+		if len(request.form[key]) < 1:
+			print "Are any Values Blank This is Bad Fill the Form out FOOL!"
+			flash("Fill out the form completely")
+			return render_template('index.html')
 	if numFound(request.form['first_name']):
 		print "Please No Numbers in Names"
 		flash("Please No Numbers in Names")
